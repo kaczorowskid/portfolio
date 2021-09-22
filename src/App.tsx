@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import AppContext from './Context/AppContext';
+import GlobalStyle from './GlobalStyle.styled';
+import Terminal from './components/Terminal/Terminal';
+import Skills from './components/Skills/Skills';
+import Projects from './components/Projects/Projects';
+import Startup from './components/Startup/Startup';
+import { data } from './mock/dataProjects/dataProjects';
 
-function App() {
+const App: React.FC = () => {
+
+  const [displayPortfolio, setDisplayPortfolio] = useState<boolean>(false)
+  const [displayContent, setDisplayContent] = useState<boolean>(false)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setDisplayContent(true), 6000);
+    return () => clearTimeout(timeout)
+  }, [])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppContext.Provider value={{ displayPortfolio, setDisplayPortfolio }}>
+        <GlobalStyle />
+        <Terminal />
+        <Skills />
+        <Projects data={data} />
+      </AppContext.Provider>
+    </>
   );
 }
 
