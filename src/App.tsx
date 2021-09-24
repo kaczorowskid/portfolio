@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AppContext from './Context/AppContext';
 import GlobalStyle from './GlobalStyle.styled';
+import VisualStudioCode from './views/VisualStudioCode/VisualStudioCode';
 import Terminal from './components/Terminal/Terminal';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
@@ -12,19 +13,19 @@ const App: React.FC = () => {
   const [displayPortfolio, setDisplayPortfolio] = useState<boolean>(false)
   const [displayContent, setDisplayContent] = useState<boolean>(false)
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setDisplayContent(true), 6000);
-    return () => clearTimeout(timeout)
-  }, [])
-
 
   return (
     <>
       <AppContext.Provider value={{ displayPortfolio, setDisplayPortfolio }}>
         <GlobalStyle />
-        <Terminal />
-        <Skills />
-        <Projects data={data} />
+        {/* <Terminal />
+        {displayPortfolio && (
+          <>
+            <Skills />
+            <Projects data={data} />
+          </>
+        )} */}
+        <VisualStudioCode />
       </AppContext.Provider>
     </>
   );

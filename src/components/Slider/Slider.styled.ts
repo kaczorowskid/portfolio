@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-        width: 100%;
+    width: 100%;
     height: 70vh;
-    background: blue;
+    /* background: #364866; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,6 @@ export const AppContainer = styled.div`
     width: 100%;
     overflow: hidden;
     font-family: 'IBM Plex Sans Arabic', sans-serif;
-    border: 2px solid blue;
 `;
 
 export const Container = styled.div<{ count?: number, arrayLen?: number }>`
