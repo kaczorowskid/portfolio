@@ -8,14 +8,19 @@ import { Markdown } from '@styled-icons/boxicons-logos'
 import { ReactLogo } from '@styled-icons/boxicons-logos'
 import { Typescript } from '@styled-icons/simple-icons'
 
-
-export const Container = styled.div`
-    width: 80%;
-    height: 80vh;
+export const Wrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80vh;
+    z-index: 5;
+`;
+
+export const Container = styled.div`
+    width: 100%;
+    height: 100%;
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     border-radius: 5px;
     overflow: hidden;
@@ -125,6 +130,11 @@ const leftSideIconStyle = css`
     color: #858585;
     width: 50px;
     margin: 15px 0;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+    }
 `;
 
 export const ExplorerIcon = styled(Documents)<{checked?:boolean}>`

@@ -1,15 +1,20 @@
 import { createGlobalStyle } from "styled-components";
+import wallpaper from './assets/img/wallpaper.png';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{wall?: any}>`
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* font-family: 'IBM Plex Sans Arabic', sans-serif; */
         
     }
     html {
-        background: #0d1117;
+        background-image: url(${props => props.wall});
+        height: 100%;
+        background-color: black;
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
     }
 `;
 

@@ -10,17 +10,14 @@ export const config = {
         nano: 'nano',
         whoami: 'whoami',
         su: 'su',
-        Github: './Github',
-        Linkedin: './Linkedin',
-        Projects: './Projects',
-        Portfolio: './Portfolio'
+        VSCode: './VSCode',
     },
     path: {
         homePath: '~$',
-        folderPath: '~/links$'
+        folderPath: '~/apps$'
     },
     folder: {
-        links: (path: string) => new RegExp('links|\/links', 'g').test(path),
+        links: (path: string) => new RegExp('apps|\/apps', 'g').test(path),
         back: '..'
     },
     links: {

@@ -1,13 +1,17 @@
 import { createContext } from 'react'
 
 export interface IAppContext {
-    displayPortfolio: boolean
-    setDisplayPortfolio: (val: boolean) => void
+    displayTerminal: boolean
+    setDisplayTerminal: (val: boolean) => void
+    displayVSC: boolean
+    setDisplayVSC: (val: boolean) => void
 }
 
 const AppContext = createContext<IAppContext>({
-    displayPortfolio: false,
-    setDisplayPortfolio: (val: boolean) => {}
+    displayTerminal: false,
+    setDisplayTerminal: (val: boolean) => {},
+    displayVSC: false,
+    setDisplayVSC: (val: boolean) => {}
 });
 
 export default AppContext

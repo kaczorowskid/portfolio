@@ -1,20 +1,24 @@
 import styled, { css } from 'styled-components'
+import { WindowMinimize } from '@styled-icons/fa-regular'
+import { Windows } from '@styled-icons/boxicons-regular'
+import { Close } from '@styled-icons/evaicons-solid'
 
-export const  Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-`;
-
-export const Container = styled.div`
-    width: 50vw;
-    height: 60vh;
-    background: #0a1704;
-    border-radius: 20px;
-    overflow: hidden;
+export const Wrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    width: 50vw;
+    height: 60vh;
+`;
+
+export const Container = styled.div`
+    width: 100%;
+    height: 100%;
+    background: #0C0C0C;
+    border-radius: 2px;
+    overflow: hidden;
     border: 1px solid black;
     box-shadow: 0px 0px 15px black;
 `;
@@ -22,33 +26,64 @@ export const Container = styled.div`
 export const Navbar = styled.div`
     width: 100%;
     height: 6%;
-    background: black;
+    background: #333333;
+    display: flex;
+    justify-content: space-between;
 `;
 
-const buttonStyle = css`
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
-    margin-left: 5px;
+const navbarIconStyle = css`
+   width: 30px;
+    height: 30px;
+    color: #898989;
+    margin: 0 15px;
 `;
 
-export const Button = styled.div<{buttonColor?: string}>`
-    ${buttonStyle};
-    background: ${props => props.buttonColor};
+export const Header = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin-left: 10px;
 `;
+
+export const IconContainer = styled.div`
+    height: 100%;
+    display: flex;
+`;
+
+export const IconWrapper = styled.div<{closeIcon?: boolean}>`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background: ${props => props.closeIcon ? 'red' : '#5C5C5C'};
+    }
+`;
+
+export const MinimalizeIcon = styled(WindowMinimize)`
+    ${navbarIconStyle};
+    padding-bottom: 10px;
+`;
+
+export const MaximalizeIcon = styled(Windows)`
+    ${navbarIconStyle};
+    width: 25px;
+    height: 25px;
+`;
+
+export const CloseIcon = styled(Close)`${navbarIconStyle};`;
 
 export const OutputContainer = styled.div`
     width: 100%;
     padding-left: 15px;
     margin-bottom: 10px;
     height: 80%;
-    color: #1342b9;
+    /* color: #1342b9; */
+    color: white;
     white-space: nowrap;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -67,26 +102,24 @@ export const InputContainer = styled.div`
 `;
 
 export const Tilde = styled.div`
-    color: green;
+    color: #16C60C;
     padding-left: 15px;
 `;
 
 export const Prompt = styled.div`
     height: 30px;
-    color: green;
+    color: #16C60C;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
     margin-right: 5px;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
-
 `;
 
-export const Cursor = styled.div<{blink?: boolean}>`
-    width: 10px;
+export const Cursor = styled.div<{ blink?: boolean }>`
+    width: 2px;
     height: 25px;
-    background: green;
+    background: white;
     display: ${props => props.blink ? 'block' : 'none'};
     /* border: 1px solid red; */
 `;
@@ -101,8 +134,7 @@ export const InputElement = styled.input`
 
 export const Input = styled.div`
     height: 30px;
-    color: green;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    color: white;
     display: flex;
     align-items: center;
 `;
@@ -140,7 +172,6 @@ export const NumberTerminal = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
     color: #0c1e08;
 `;
 
@@ -149,11 +180,10 @@ export const TerminalType = styled.div`
     align-items: center;
     font-size: 20px;
     color: white;
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
     color: #1342b9;
     padding-left: 20px;
 `;
 
 export const ActualPath = styled.span`
-    color: #1342b9;
+    color: #3B78FF;
 `;

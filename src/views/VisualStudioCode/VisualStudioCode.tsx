@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, forwardRef } from 'react';
 import * as styled from './VisualStudioCode.styled';
 import { config } from './config';
 import { IiconData } from './types';
+import AboutMe from './Content/AboutMe';
+import Contact from './Content/Contact';
+import AppContext from '../../context/AppContext';
+import { motion } from 'framer-motion';
 
-const VisualStudioCode: React.FC = () => {
+
+const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
+
+    const { setDisplayVSC } = useContext(AppContext);
 
     const { aboutMe, projects, contact } = config;
     const [openFiles, setOpenFiles] = useState<Array<string>>([aboutMe])
     const [checkFile, setCheckFile] = useState<number>(1)
     const [openFolder, setOpenFolder] = useState<boolean>(true)
-    const numbersLine = Array.from({ length: 100 }, (d, i) => i++);
+    const numbersLine = Array.from({ length: 45 }, (d, i) => i++).filter(i => i !== 0);
 
     const addToArray = (val: string) => {
         const set = new Set(openFiles);
@@ -34,8 +41,8 @@ const VisualStudioCode: React.FC = () => {
     }
 
     return (
-        <>
-            <styled.Container>
+        <styled.Wrapper>
+            <styled.Container ref={ref}>
                 <styled.ContainerNavbar>
                     <styled.NavbarItemContainer>
                         <styled.NavbarItem>File</styled.NavbarItem>
@@ -55,7 +62,7 @@ const VisualStudioCode: React.FC = () => {
                         <styled.IconWrapper>
                             <styled.MaximalizeIcon />
                         </styled.IconWrapper>
-                        <styled.IconWrapper closeIcon={true} >
+                        <styled.IconWrapper onClick={() => setDisplayVSC(false)} closeIcon={true} >
                             <styled.CloseIcon />
                         </styled.IconWrapper>
                     </styled.IconContainer>
@@ -108,17 +115,17 @@ const VisualStudioCode: React.FC = () => {
                                 {numbersLine.map(i => <styled.Number key={i} >{i}</styled.Number>)}
                             </styled.NumberLinesContainer>
                             <styled.Content>
-                                {(openFiles[checkFile - 1] == aboutMe) && <div>aboutme</div>}
+                                {(openFiles[checkFile - 1] == aboutMe) && <AboutMe />}
                                 {(openFiles[checkFile - 1] == projects) && <div>projects</div>}
-                                {(openFiles[checkFile - 1] == contact) && <div>contact</div>}
+                                {(openFiles[checkFile - 1] == contact) && <Contact />}
                             </styled.Content>
                         </styled.Editor>
                     </styled.EditorWrapper>
                 </styled.Window>
                 <styled.Footer></styled.Footer>
             </styled.Container>
-        </>
+        </styled.Wrapper>
     )
-}
+})
 
-export default VisualStudioCode;
+export default motion(VisualStudioCode, { forwardMotionProps: true })

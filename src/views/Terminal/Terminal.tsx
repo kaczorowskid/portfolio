@@ -1,21 +1,22 @@
-import React, { useState, useRef, useEffect, MutableRefObject, useContext } from 'react'
+import React, { useState, useRef, useEffect, MutableRefObject, useContext, forwardRef } from 'react'
 import * as styled from './Terminal.styled'
 import Parser from 'html-react-parser';
 import { commands } from './commands';
 import { fetchCat } from '../../helper/fetchCat';
 import { config } from './config'
-import AppContext from '../../Context/AppContext';
+import AppContext from '../../context/AppContext';
+import { motion } from 'framer-motion'
 
 
-const Terminal: React.FC = () => {
+const Terminal = forwardRef<HTMLDivElement, any>((_, ref) => {
 
-    const { setDisplayPortfolio } = useContext(AppContext)
+    const { setDisplayTerminal, setDisplayVSC } = useContext(AppContext)
 
     const inputRef = useRef() as MutableRefObject<HTMLInputElement>
 
     const [inputVal, setInputVal] = useState<string>('')
     const [startBlinkCursor, setStartBlinkCursor] = useState<boolean>(false);
-    const [output, setOutput] = useState<Array<any>>(['Type --help to show commands'])
+    const [output, setOutput] = useState<Array<string>>(['Type --help to show commands'])
     const [actualPath, setActualPath] = useState<string>('~$')
     const [user, setUser] = useState<string>(localStorage.getItem('user') || 'root');
 
@@ -31,13 +32,13 @@ const Terminal: React.FC = () => {
         }
     }
 
-    const setCommands = (command: any) => {
+    const setCommands = (command: string) => {
         setOutput(data => [...data, command]);
     }
 
-    const handleCommands = async (val: any) => {
+    const handleCommands = async (val: string) => {
 
-        const { help, cat, empty, clear, echo, ls, cd, whoami, su, Github, Linkedin, Projects, Portfolio } = config.command;
+        const { help, cat, empty, clear, echo, ls, cd, whoami, su, VSCode } = config.command;
         const { homePath, folderPath } = config.path;
         const { links, back } = config.folder;
 
@@ -83,17 +84,8 @@ const Terminal: React.FC = () => {
                     localStorage.setItem('user', userName)
                 }
                 break;
-            case Github:
-                (actualPath === folderPath) ? window.open('https://github.com/sijab') : setCommands(commands.error(inputVal))
-                break;
-            case Linkedin:
-                (actualPath === folderPath) ? window.open('https://linkedin.com/sijab') : setCommands(commands.error(inputVal))
-                break;
-            case Projects:
-                (actualPath === folderPath) ? window.open('https://google.com') : setCommands(commands.error(inputVal))
-                break;
-            case Portfolio:
-                setDisplayPortfolio(true);
+            case VSCode:
+                (actualPath === folderPath) ? setDisplayVSC(true) : setCommands(commands.error(inputVal))
                 break;
             case whoami:
                 setCommands(commands.whoami)
@@ -111,12 +103,23 @@ const Terminal: React.FC = () => {
 
     return (
         <>
-            <styled.Wrapper>
-                <styled.Container onClick={() => inputRef?.current?.focus()} >
+            <styled.Wrapper  >
+                <styled.Container ref={ref} onClick={() => inputRef?.current?.focus()} >
                     <styled.Navbar>
-                        <styled.Button buttonColor='red' />
-                        <styled.Button buttonColor='orange' />
-                        <styled.Button buttonColor='green' />
+                        <styled.Header>
+                            <div style={{ color: 'white' }} >Terminal</div>
+                        </styled.Header>
+                        <styled.IconContainer>
+                            <styled.IconWrapper>
+                                <styled.MinimalizeIcon />
+                            </styled.IconWrapper>
+                            <styled.IconWrapper>
+                                <styled.MaximalizeIcon />
+                            </styled.IconWrapper>
+                            <styled.IconWrapper onClick={() => setDisplayTerminal(false)} closeIcon={true} >
+                                <styled.CloseIcon />
+                            </styled.IconWrapper>
+                        </styled.IconContainer>
                     </styled.Navbar>
                     <styled.OutputContainer>
                         {output.map((val: any, i: any) => <styled.Output key={i} >{Parser(val)}</styled.Output>)}
@@ -132,6 +135,6 @@ const Terminal: React.FC = () => {
             </styled.Wrapper>
         </>
     )
-}
+})
 
-export default Terminal;
+export default motion(Terminal, { forwardMotionProps: true })
