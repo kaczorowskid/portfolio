@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import wallpaper from './assets/img/wallpaper.png';
 
-const GlobalStyle = createGlobalStyle<{wall?: any}>`
+const GlobalStyle = createGlobalStyle<{wallpaper?: string}>`
     * {
         margin: 0;
         padding: 0;
@@ -9,7 +8,7 @@ const GlobalStyle = createGlobalStyle<{wall?: any}>`
         
     }
     html {
-        background-image: url(${props => props.wall});
+        background-image: url(${props => props.wallpaper});
         height: 100%;
         background-color: black;
         background-position: center; 

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import * as styled from './Icon.styled';
 
 interface Props {
     icon?: JSX.Element
     nameApp?: string
-    onClick?: (val: any) => void
-    onDoubleClick?: (val: any) => void
+    onClick?: MouseEventHandler<HTMLDivElement>
+    onDoubleClick?: MouseEventHandler<HTMLDivElement>
 }
 
 const Icon: React.FC<Props> = ({ icon, nameApp, onClick, onDoubleClick }) => {

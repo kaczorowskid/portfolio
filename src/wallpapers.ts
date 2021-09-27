@@ -6,7 +6,7 @@ import wallpaper4 from './assets/img/wallpaper4.jpg'
 import wallpaper5 from './assets/img/wallpaper5.jpg'
 import wallpaper6 from './assets/img/wallpaper6.jpg'
 
-export const wallpapers = [
+export const wallpapers: Array<string> = [
     wallpaper1,
     wallpaper2,
     wallpaper3,

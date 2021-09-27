@@ -33,7 +33,7 @@ const App: React.FC = () => {
   return (
     <>
       <AppContext.Provider value={value}>
-        <GlobalStyle wall={wallpapers[checkWallpaper]} />
+        <GlobalStyle wallpaper={wallpapers[checkWallpaper]} />
         <Icon onDoubleClick={() => setDisplayVSC(true)} nameApp='VisualStudioCode' icon={<Visualstudiocode />} />
         <Icon onDoubleClick={() => setDisplayTerminal(true)} nameApp='Terminal' icon={<Windowsterminal />} />
         <Icon onDoubleClick={() => setDisplaySettings(true)} nameApp='Settings' icon={<Settings2 />} />
