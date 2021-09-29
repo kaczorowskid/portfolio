@@ -1,7 +1,7 @@
 import React from 'react'
-import { contact } from './config';
-import * as styled from './style';
-import { tab } from './tab';
+import { contact } from '../config';
+import * as styled from '../style';
+import { tab } from '../helper/tab';
 
 const Contact: React.FC = () => {
 

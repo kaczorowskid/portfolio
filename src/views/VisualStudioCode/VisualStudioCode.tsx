@@ -2,10 +2,11 @@ import React, { useState, useContext, forwardRef } from 'react';
 import * as styled from './VisualStudioCode.styled';
 import { config } from './config';
 import { IiconData } from './types';
-import AboutMe from './Content/AboutMe';
-import Contact from './Content/Contact';
+import AboutMe from './Content/components/AboutMe';
+import Contact from './Content/components/Contact';
 import AppContext from '../../context/AppContext';
 import { motion } from 'framer-motion';
+import Projects from './Content/components/Projects';
 
 
 const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
@@ -116,7 +117,7 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
                             </styled.NumberLinesContainer>
                             <styled.Content>
                                 {(openFiles[checkFile - 1] == aboutMe) && <AboutMe />}
-                                {(openFiles[checkFile - 1] == projects) && <div>projects</div>}
+                                {(openFiles[checkFile - 1] == projects) && <Projects /> }
                                 {(openFiles[checkFile - 1] == contact) && <Contact />}
                             </styled.Content>
                         </styled.Editor>

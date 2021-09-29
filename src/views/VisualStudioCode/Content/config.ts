@@ -1,3 +1,6 @@
+import portfolio from '../../../assets/img/portfolio.jpg'
+import gigachad from '../../../assets/img/gigachad.jpg';
+
 export const skills = {
     frontend: [
         'Javascript', 
@@ -31,4 +34,19 @@ export const contact = {
     github: 'https://github.com/sijab',
     linkedin: 'https://linkedin.com/sijab',
     email: 'https://gmail.com/sijab'
+}
+
+export const projects = {
+    Portfolio: {
+        image: portfolio,
+        description: 'My personal portfolio',
+        githubLink: 'https://github.com/sijab/portfolio',
+        liveLink: 'https://google.com'
+    },
+    TestProject: {
+        image: gigachad,
+        description: 'Test project',
+        githubLink: 'https://github.com/sijab',
+        liveLink: 'https://google.com'
+    }
 }

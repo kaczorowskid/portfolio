@@ -1,10 +1,10 @@
 import React from 'react'
-import * as styled from './style';
-import face from '../../../assets/img/face.png'
+import * as styled from '../style';
+import face from '../../../../assets/img/face.png'
 import { motion } from 'framer-motion';
-import { avatarVariants } from './animationVariants';
-import { skills } from './config';
-import { tab } from './tab';
+import { avatarVariants } from '../animationVariants';
+import { skills } from '../config';
+import { tab } from '../helper/tab';
 
 const AboutMe: React.FC = () => {
 
@@ -36,13 +36,13 @@ const AboutMe: React.FC = () => {
                     {tab(1)} <styled.ObjectKey>image: </styled.ObjectKey>{'{'}
                 </styled.Line>
                 <styled.ImageContainer>
-                    <styled.Image>
+                    <styled.AvatarContainer>
                         <motion.img
                             {...avatarVariants}
                             initial='hiddden'
                             animate="visible"
                             style={{ width: '100%', height: '100%' }} src={face} alt="" />
-                    </styled.Image>
+                    </styled.AvatarContainer>
                 </styled.ImageContainer>
                 <styled.Line>
                     {tab(1)}{'},'}

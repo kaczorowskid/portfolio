@@ -27,7 +27,12 @@ export const ImageContainer = styled.div`
     align-items: center;
 `;
 
-export const Image = styled.div`
+export const Image = styled.img`
+    width: 300px;
+    height: 200px;
+`;
+
+export const AvatarContainer = styled.div`
     width: 150px;
     height: 150px;
     position: relative;
@@ -54,12 +59,48 @@ export const String = styled.span`
     color: #CE8349;
 `;
 
+export const PortfolioImageContainer = styled.div`
+    width: 100%;
+    height: 480px;
+    display: flex;
+    align-items: center;
+`;
 
-const aboutMe = {
-    image: {
 
-    },
-    mySkills: {
-        Frontend: []
+export const PortfolioImage = styled.img`
+    width: 700px;
+    height: 450px;
+`;
+
+export const ButtonContainer = styled.div`
+    width: 300px;
+    height:150px;
+    /* background: black; */
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+`;
+
+export const Button = styled.button`
+    width: 40%;
+    height: 50%;
+    font-size: 20px;
+    background: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+`;
+
+export const PortfolioImageWrapper = styled.div`
+    position: relative;
+
+    &:hover :not(${ButtonContainer}):not(${Button}) {
+        transition: all 0.5s ease;
+        filter: blur(10px);
     }
-}
+`;
