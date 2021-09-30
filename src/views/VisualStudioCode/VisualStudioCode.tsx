@@ -1,4 +1,4 @@
-import React, { useState, useContext, forwardRef } from 'react';
+import React, { useState, useContext, forwardRef, useRef, useEffect, createRef } from 'react';
 import * as styled from './VisualStudioCode.styled';
 import { config } from './config';
 import { IiconData } from './types';
@@ -14,10 +14,13 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
     const { setDisplayVSC } = useContext(AppContext);
 
     const { aboutMe, projects, contact } = config;
+
     const [openFiles, setOpenFiles] = useState<Array<string>>([aboutMe])
     const [checkFile, setCheckFile] = useState<number>(1)
     const [openFolder, setOpenFolder] = useState<boolean>(true)
-    const numbersLine = Array.from({ length: 45 }, (d, i) => i++).filter(i => i !== 0);
+    const [compHeight, setCompHeight] = useState<number>(0)
+
+    const numbersLine = Array.from({ length: (compHeight / 40) }, (d, i) => i++);
 
     const addToArray = (val: string) => {
         const set = new Set(openFiles);
@@ -113,12 +116,12 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
                         </styled.OpenFilesContainer>
                         <styled.Editor>
                             <styled.NumberLinesContainer>
-                                {numbersLine.map(i => <styled.Number key={i} >{i}</styled.Number>)}
+                                {numbersLine.map(i => <styled.Number key={i} >{i + 1}</styled.Number>)}
                             </styled.NumberLinesContainer>
                             <styled.Content>
-                                {(openFiles[checkFile - 1] == aboutMe) && <AboutMe />}
-                                {(openFiles[checkFile - 1] == projects) && <Projects /> }
-                                {(openFiles[checkFile - 1] == contact) && <Contact />}
+                                {(openFiles[checkFile - 1] == aboutMe) && <AboutMe getHeightContainer = {setCompHeight} /> }
+                                {(openFiles[checkFile - 1] == projects) && <Projects getHeightContainer = {setCompHeight} />}
+                                {(openFiles[checkFile - 1] == contact) && <Contact  getHeightContainer = {setCompHeight} /> }
                             </styled.Content>
                         </styled.Editor>
                     </styled.EditorWrapper>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import * as styled from '../style';
 import face from '../../../../assets/img/face.png'
 import { motion } from 'framer-motion';
@@ -6,9 +6,15 @@ import { avatarVariants } from '../animationVariants';
 import { skills } from '../config';
 import { tab } from '../helper/tab';
 
-const AboutMe: React.FC = () => {
+interface Props {
+    getHeightContainer: Dispatch<SetStateAction<number | any>>
+}
+
+const AboutMe: React.FC<Props> = ({getHeightContainer}) => {
 
     const { frontend, backend, other } = skills;
+
+    const containerRef = useRef<HTMLDivElement>(null)
 
     const enterSkills = (dataSkill: Array<string>): Array<JSX.Element> => {
         return (
@@ -20,9 +26,13 @@ const AboutMe: React.FC = () => {
         )
     }
 
+    useEffect(() => {
+        getHeightContainer(containerRef.current?.clientHeight)
+    }, [])
+
     return (
         <>
-            <styled.Container>
+            <styled.Container ref = {containerRef} >
                 <styled.Line>
                     <styled.Const>const </styled.Const>
                     <styled.ObjectName>aboutMe: <styled.Type >IaboutMeData</styled.Type> </styled.ObjectName>{`= {`}

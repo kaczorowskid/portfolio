@@ -1,12 +1,17 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, Dispatch, SetStateAction } from 'react';
 import * as styled from '../style';
 import { tab } from '../helper/tab';
 import { projects } from '../config';
 
-const Projects: React.FC = () => {
+interface Props {
+    getHeightContainer: Dispatch<SetStateAction<number | any>>
+}
+
+const Projects: React.FC<Props> = ({getHeightContainer}) => {
     const [touchIdx, setTouchIdx] = useState<number>(10);
 
     const buttonContainerRef = useRef<Array<HTMLDivElement | null>>([])
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         buttonContainerRef.current.forEach((div, i) => {
@@ -16,10 +21,14 @@ const Projects: React.FC = () => {
         })
     }, [touchIdx])
 
+    useEffect(() => {
+        getHeightContainer(containerRef.current?.clientHeight)
+    }, [])
+
 
     return (
         <>
-            <styled.Container>
+            <styled.Container ref = {containerRef} >
                 <styled.Line >
                     <styled.Const>const </styled.Const> <styled.ObjectName>Projects: <styled.Type>Iprojects</styled.Type> </styled.ObjectName>{'= {'}
                 </styled.Line>

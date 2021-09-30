@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import { contact } from '../config';
 import * as styled from '../style';
 import { tab } from '../helper/tab';
 
-const Contact: React.FC = () => {
+interface Props {
+    getHeightContainer: Dispatch<SetStateAction<number | any>>
+}
+
+const Contact: React.FC<Props> = ({ getHeightContainer }) => {
+
+    const containerRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        getHeightContainer(containerRef.current?.clientHeight)
+    }, [])
 
     return (
         <>
-            <styled.Container>
+            <styled.Container ref={containerRef} >
                 <styled.Line>
                     <styled.Const>const </styled.Const>
                     <styled.ObjectName>contact: <styled.Type>Icontact</styled.Type> </styled.ObjectName>{'= {'}
