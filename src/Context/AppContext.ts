@@ -14,13 +14,13 @@ export interface IAppContext {
 
 const AppContext = createContext<IAppContext>({
     displayTerminal: false,
-    setDisplayTerminal: (val: boolean) => {},
+    setDisplayTerminal: () => {},
     displayVSC: false,
-    setDisplayVSC: (val: boolean) => {},
+    setDisplayVSC: () => {},
     displaySettings: false,
-    setDisplaySettings: (val: boolean) => {},
+    setDisplaySettings: () => {},
     checkWallpaper: 0,
-    setCheckWallpaper: (val: number) => {}
+    setCheckWallpaper: () => {}
 });
 
 export default AppContext

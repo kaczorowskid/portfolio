@@ -5,14 +5,13 @@ import { motion } from 'framer-motion';
 import { avatarVariants } from '../animationVariants';
 import { skills } from '../config';
 import { tab } from '../helper/tab';
+import { useClientHeight } from '../../../../hooks/useClientHeight';
 
-interface Props {
-    getHeightContainer: Dispatch<SetStateAction<number | any>>
-}
-
-const AboutMe: React.FC<Props> = ({getHeightContainer}) => {
+const AboutMe: React.FC = () => {
 
     const { frontend, backend, other } = skills;
+
+    const { setClientHeight } = useClientHeight();
 
     const containerRef = useRef<HTMLDivElement>(null)
 
@@ -27,7 +26,7 @@ const AboutMe: React.FC<Props> = ({getHeightContainer}) => {
     }
 
     useEffect(() => {
-        getHeightContainer(containerRef.current?.clientHeight)
+        setClientHeight(containerRef.current?.clientHeight)
     }, [])
 
     return (

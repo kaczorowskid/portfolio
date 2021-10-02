@@ -2,16 +2,15 @@ import React, { useRef, useEffect, useState, Dispatch, SetStateAction } from 're
 import * as styled from '../style';
 import { tab } from '../helper/tab';
 import { projects } from '../config';
+import { useClientHeight } from '../../../../hooks/useClientHeight';
 
-interface Props {
-    getHeightContainer: Dispatch<SetStateAction<number | any>>
-}
 
-const Projects: React.FC<Props> = ({getHeightContainer}) => {
+const Projects: React.FC = () => {
     const [touchIdx, setTouchIdx] = useState<number>(10);
 
-    const buttonContainerRef = useRef<Array<HTMLDivElement | null>>([])
+    const buttonContainerRef = useRef<Array<HTMLDivElement | null>>([]);
     const containerRef = useRef<HTMLDivElement>(null);
+    const { setClientHeight } = useClientHeight();
 
     useEffect(() => {
         buttonContainerRef.current.forEach((div, i) => {
@@ -19,11 +18,11 @@ const Projects: React.FC<Props> = ({getHeightContainer}) => {
                 (touchIdx === i) ? div.style.display = "flex" : div.style.display = "none"
             }
         })
-    }, [touchIdx])
+    }, [touchIdx]);
 
     useEffect(() => {
-        getHeightContainer(containerRef.current?.clientHeight)
-    }, [])
+        setClientHeight(containerRef.current?.clientHeight);
+    }, []);
 
 
     return (

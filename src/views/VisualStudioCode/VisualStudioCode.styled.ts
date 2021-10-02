@@ -197,7 +197,6 @@ export const Editor = styled.div`
     grid-template-columns: 5% 95%;
     grid-template-rows: 100%;
     overflow-y: scroll;
-    /* border: 1px solid green; */
 `;
 
 export const OpenFilesContainer = styled.div`

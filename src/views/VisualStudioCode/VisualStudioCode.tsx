@@ -7,28 +7,30 @@ import Contact from './Content/components/Contact';
 import AppContext from '../../context/AppContext';
 import { motion } from 'framer-motion';
 import Projects from './Content/components/Projects';
+import { useClientHeight } from '../../hooks/useClientHeight';
 
 
 const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
 
-    const { setDisplayVSC } = useContext(AppContext);
-
     const { aboutMe, projects, contact } = config;
+
+    const { clientHeight } = useClientHeight();
+
+    const { setDisplayVSC } = useContext(AppContext);
 
     const [openFiles, setOpenFiles] = useState<Array<string>>([aboutMe])
     const [checkFile, setCheckFile] = useState<number>(1)
     const [openFolder, setOpenFolder] = useState<boolean>(true)
-    const [compHeight, setCompHeight] = useState<number>(0)
 
-    const numbersLine = Array.from({ length: (compHeight / 40) }, (d, i) => i++);
+    const numbersLine = Array.from({ length: (clientHeight / 40) }, (d, i) => i++);
 
-    const addToArray = (val: string) => {
+    const addToArrayOpenTabs = (val: string) => {
         const set = new Set(openFiles);
         set.add(val)
         setOpenFiles(Array.from(set))
     }
 
-    const filterArray = (val: string) => {
+    const filterArrayOpenTabs = (val: string) => {
         setOpenFiles(openFiles.filter(i => i !== val))
     }
 
@@ -88,15 +90,15 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
                             </styled.FolderWrapper>
                             {openFolder && (
                                 <>
-                                    <styled.FolderWrapper onClick={() => addToArray(aboutMe)}  >
+                                    <styled.FolderWrapper onClick={() => addToArrayOpenTabs(aboutMe)}  >
                                         <styled.MarkdownIcon />
                                         <styled.FolderName >{aboutMe}</styled.FolderName>
                                     </styled.FolderWrapper>
-                                    <styled.FolderWrapper onClick={() => addToArray(projects)} >
+                                    <styled.FolderWrapper onClick={() => addToArrayOpenTabs(projects)} >
                                         <styled.TSXIcon />
                                         <styled.FolderName >{projects}</styled.FolderName>
                                     </styled.FolderWrapper >
-                                    <styled.FolderWrapper onClick={() => addToArray(contact)} >
+                                    <styled.FolderWrapper onClick={() => addToArrayOpenTabs(contact)} >
                                         <styled.TSIcon />
                                         <styled.FolderName >{contact}</styled.FolderName>
                                     </styled.FolderWrapper>
@@ -110,7 +112,7 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
                                 <styled.OpenFile key={i} check={checkFile} onClick={() => setCheckFile(i + 1)}>
                                     {iconData[data].icon}
                                     <styled.OpenFileName> {data} </styled.OpenFileName>
-                                    <styled.CloseIconFile onClick={() => filterArray(data)} />
+                                    <styled.CloseIconFile onClick={() => filterArrayOpenTabs(data)} />
                                 </styled.OpenFile>
                             ))}
                         </styled.OpenFilesContainer>
@@ -119,9 +121,9 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
                                 {numbersLine.map(i => <styled.Number key={i} >{i + 1}</styled.Number>)}
                             </styled.NumberLinesContainer>
                             <styled.Content>
-                                {(openFiles[checkFile - 1] == aboutMe) && <AboutMe getHeightContainer = {setCompHeight} /> }
-                                {(openFiles[checkFile - 1] == projects) && <Projects getHeightContainer = {setCompHeight} />}
-                                {(openFiles[checkFile - 1] == contact) && <Contact  getHeightContainer = {setCompHeight} /> }
+                                {(openFiles[checkFile - 1] == aboutMe) && <AboutMe />}
+                                {(openFiles[checkFile - 1] == projects) && <Projects />}
+                                {(openFiles[checkFile - 1] == contact) && <Contact />}
                             </styled.Content>
                         </styled.Editor>
                     </styled.EditorWrapper>
