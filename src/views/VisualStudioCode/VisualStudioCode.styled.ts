@@ -7,6 +7,7 @@ import { FolderOpen, Folder } from '@styled-icons/boxicons-solid'
 import { Markdown } from '@styled-icons/boxicons-logos'
 import { ReactLogo } from '@styled-icons/boxicons-logos'
 import { Typescript } from '@styled-icons/simple-icons'
+import { device } from '../../helper/deviceSize'
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
     height: 90vh;
     z-index: 5;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         width: 95%;
     }
 `;
@@ -38,7 +39,7 @@ export const ContainerNavbar = styled.div`
     grid-template-rows: 100%;
     background: #323233;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         display: flex;
     }
 `;
@@ -46,7 +47,7 @@ export const ContainerNavbar = styled.div`
 export const NavbarItemContainer = styled.div`
     display: flex;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         display: none;
     }
 
@@ -129,7 +130,7 @@ export const LeftColumn = styled.div`
     width: 20%;
     display: flex;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
        display: none;
     }
 `;
@@ -183,7 +184,7 @@ const logoIconStyle = css`
     width: 30px;
     height: 30px;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         width: 15px;
         height: 15px;
     }
@@ -211,7 +212,7 @@ export const EditorWrapper = styled.div`
     flex-direction: column;
     width: 80%;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         width: 100%;
         overflow: scroll;
     }
@@ -233,7 +234,7 @@ export const OpenFilesContainer = styled.div`
     background: #252526;
     display:  flex;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         width: 200%;
     }
 `;
@@ -253,7 +254,7 @@ export const OpenFile = styled.div<{check?: number}>`
         background: #1E1E1E;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         width: 16%;
         justify-content: space-around;
     }
@@ -263,7 +264,7 @@ export const OpenFile = styled.div<{check?: number}>`
 export const OpenFileName = styled.span`
     color: white;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
        font-size: 12px;
     }
 `;
@@ -275,7 +276,7 @@ export const CloseIconFile = styled(Close)`
         background: #3B3C3C;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
        display: none;
     }
     

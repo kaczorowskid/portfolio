@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { WindowMinimize } from '@styled-icons/fa-regular'
 import { Windows } from '@styled-icons/boxicons-regular'
 import { Close } from '@styled-icons/evaicons-solid'
+import { device } from '../../helper/deviceSize';
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -12,7 +13,7 @@ export const Wrapper = styled.div`
     width: 50vw;
     height: 60vh;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (${device.laptop}) {
         width: 95%;
     }
 `;
