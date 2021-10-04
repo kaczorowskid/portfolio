@@ -18,7 +18,7 @@ const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {
 
     const { setDisplayVSC } = useContext(AppContext);
 
-    const [openFiles, setOpenFiles] = useState<Array<string>>([aboutMe])
+    const [openFiles, setOpenFiles] = useState<Array<string>>([aboutMe, projects, contact])
     const [checkFile, setCheckFile] = useState<number>(1)
     const [openFolder, setOpenFolder] = useState<boolean>(true)
 

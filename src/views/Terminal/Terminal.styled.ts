@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
     font-family: 'IBM Plex Sans Arabic', sans-serif;
     width: 50vw;
     height: 60vh;
+
+    @media only screen and (max-width: 768px) {
+        width: 95%;
+    }
 `;
 
 export const Container = styled.div`

@@ -16,7 +16,7 @@ export const Line = styled.div`
 
 export const Tab = styled.span`
     height: 100%;
-    width: 60px;
+    width: 30px;
 `;
 
 export const ImageContainer = styled.div`
@@ -35,7 +35,7 @@ export const AvatarContainer = styled.div`
     width: 150px;
     height: 150px;
     position: relative;
-    left: 10%;
+    left: 7%;
 `;
 
 export const Const = styled.span`
@@ -63,12 +63,22 @@ export const PortfolioImageContainer = styled.div`
     height: 480px;
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: 768px) {
+        height: 280px;
+    }
 `;
 
 
 export const PortfolioImage = styled.img`
     width: 700px;
     height: 450px;
+
+    @media only screen and (max-width: 768px) {
+        width: 400px;
+        height: 250px;
+    }
+    
 `;
 
 export const ButtonContainer = styled.div`

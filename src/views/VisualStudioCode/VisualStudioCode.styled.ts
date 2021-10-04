@@ -14,8 +14,12 @@ export const Wrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: 80vh;
+    height: 90vh;
     z-index: 5;
+
+    @media only screen and (max-width: 768px) {
+        width: 95%;
+    }
 `;
 
 export const Container = styled.div`
@@ -33,10 +37,19 @@ export const ContainerNavbar = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100%;
     background: #323233;
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+    }
 `;
 
 export const NavbarItemContainer = styled.div`
     display: flex;
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
+
 `;
 
 export const NavbarItem = styled.div`
@@ -115,6 +128,10 @@ export const LeftColumn = styled.div`
     height: 100%;
     width: 20%;
     display: flex;
+
+    @media only screen and (max-width: 768px) {
+       display: none;
+    }
 `;
 
 export const LeftSideIconContainer = styled.div`
@@ -165,6 +182,11 @@ const logoIconStyle = css`
     color: #90A4AE;
     width: 30px;
     height: 30px;
+
+    @media only screen and (max-width: 768px) {
+        width: 15px;
+        height: 15px;
+    }
 `;
 
 export const FolderOpenIcon = styled(FolderOpen)`${logoIconStyle}`;
@@ -172,6 +194,7 @@ export const FolderCloseIcon = styled(Folder)`${logoIconStyle}`;
 export const MarkdownIcon = styled(Markdown)`${logoIconStyle}`;
 export const TSXIcon = styled(ReactLogo)`${logoIconStyle}`;
 export const TSIcon = styled(Typescript)`
+    ${logoIconStyle};
     color: #90A4AE;
     width: 25px;
     margin: 0 3px;
@@ -187,11 +210,16 @@ export const EditorWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 80%;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        overflow: scroll;
+    }
 `;
 
 export const Editor = styled.div`
     height: 100%;
-    width: 100%;
+    width: 200%;
     background: #1E1E1E;
     display: grid;
     grid-template-columns: 5% 95%;
@@ -204,6 +232,10 @@ export const OpenFilesContainer = styled.div`
     height: 6%;
     background: #252526;
     display:  flex;
+
+    @media only screen and (max-width: 768px) {
+        width: 200%;
+    }
 `;
 
 export const OpenFile = styled.div<{check?: number}>`
@@ -220,10 +252,20 @@ export const OpenFile = styled.div<{check?: number}>`
     &:nth-child(${props => props.check}){
         background: #1E1E1E;
     }
+
+    @media only screen and (max-width: 768px) {
+        width: 16%;
+        justify-content: space-around;
+    }
+    
 `;
 
 export const OpenFileName = styled.span`
     color: white;
+
+    @media only screen and (max-width: 768px) {
+       font-size: 12px;
+    }
 `;
 
 export const CloseIconFile = styled(Close)`
@@ -232,6 +274,11 @@ export const CloseIconFile = styled(Close)`
     &:hover {
         background: #3B3C3C;
     }
+
+    @media only screen and (max-width: 768px) {
+       display: none;
+    }
+    
 `;
 
 export const NumberLinesContainer = styled.div`

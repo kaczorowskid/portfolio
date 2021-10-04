@@ -12,7 +12,7 @@ const Terminal = forwardRef<HTMLDivElement, any>((_, ref) => {
 
     const { setDisplayTerminal, setDisplayVSC } = useContext(AppContext)
 
-    const inputRef = useRef() as MutableRefObject<HTMLInputElement>
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const [inputVal, setInputVal] = useState<string>('')
     const [startBlinkCursor, setStartBlinkCursor] = useState<boolean>(false);

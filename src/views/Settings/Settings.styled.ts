@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'IBM Plex Sans Arabic', sans-serif;
+
+    @media only screen and (max-width: 768px) {
+        width: 95%;
+    }
 `;
 
 export const Container = styled.div`
@@ -101,6 +105,10 @@ export const ImagesCheckContainer = styled.div`
     width: 200%;
     height: 90%;
     display: flex;
+
+    @media only screen and (max-width: 768px) {
+        width: 300%;
+    }
 `;
 
 export const CheckImageWrapper = styled.div<{checkImage?: number}>`
