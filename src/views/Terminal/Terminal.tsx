@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, MutableRefObject, useContext, forwardRef } from 'react'
+import React, { useState, useRef, useEffect, useContext, forwardRef } from 'react'
 import * as styled from './Terminal.styled'
 import Parser from 'html-react-parser';
 import { commands } from './commands';
@@ -6,11 +6,12 @@ import { fetchCat } from '../../helper/fetchCat';
 import { config } from './config'
 import AppContext from '../../context/AppContext';
 import { motion } from 'framer-motion'
+import Navbar from './components/Navbar/Navbar';
 
 
 const Terminal = forwardRef<HTMLDivElement, any>((_, ref) => {
 
-    const { setDisplayTerminal, setDisplayVSC } = useContext(AppContext)
+    const { setDisplayVSC, setDisplayTerminal } = useContext(AppContext)
 
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -105,22 +106,7 @@ const Terminal = forwardRef<HTMLDivElement, any>((_, ref) => {
         <>
             <styled.Wrapper  >
                 <styled.Container ref={ref} onClick={() => inputRef?.current?.focus()} >
-                    <styled.Navbar>
-                        <styled.Header>
-                            <div style={{ color: 'white' }} >Terminal</div>
-                        </styled.Header>
-                        <styled.IconContainer>
-                            <styled.IconWrapper>
-                                <styled.MinimalizeIcon />
-                            </styled.IconWrapper>
-                            <styled.IconWrapper>
-                                <styled.MaximalizeIcon />
-                            </styled.IconWrapper>
-                            <styled.IconWrapper onClick={() => setDisplayTerminal(false)} closeIcon={true} >
-                                <styled.CloseIcon />
-                            </styled.IconWrapper>
-                        </styled.IconContainer>
-                    </styled.Navbar>
+                    <Navbar appName = 'Terminal' setDisplayTerminal = {setDisplayTerminal} />
                     <styled.OutputContainer>
                         {output.map((val: any, i: any) => <styled.Output key={i} >{Parser(val)}</styled.Output>)}
                     </styled.OutputContainer>

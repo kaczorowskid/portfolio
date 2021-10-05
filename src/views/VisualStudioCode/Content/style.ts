@@ -69,7 +69,6 @@ export const PortfolioImageContainer = styled.div`
     }
 `;
 
-
 export const PortfolioImage = styled.img`
     width: 700px;
     height: 450px;
@@ -84,7 +83,6 @@ export const PortfolioImage = styled.img`
 export const ButtonContainer = styled.div`
     width: 300px;
     height:150px;
-    /* background: black; */
     position: absolute;
     bottom: 50%;
     left: 50%;

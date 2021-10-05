@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /* border: 2px solid green; */
     width: 150px;
     height: 100px;
     margin: 10px;

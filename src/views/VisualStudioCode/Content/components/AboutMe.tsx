@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as styled from '../style';
 import face from '../../../../assets/img/face.png'
 import { motion } from 'framer-motion';
