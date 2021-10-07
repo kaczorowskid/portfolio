@@ -62,7 +62,7 @@ const AboutMe: React.FC = () => {
                     {tab(1)} <styled.ObjectKey >aboutMe: </styled.ObjectKey>{'['}
                 </styled.Line>
                 <styled.Line>
-                    {tab(2)} <styled.String >'Hello 👋 I'm Damian, a beginner frontend developer 👨🏽‍💻' </styled.String>
+                    {tab(2)} <styled.String >'Hello 👋 I'm Damian, a aspiring frontend developer 👨🏽‍💻' </styled.String>
                 </styled.Line>
                 <styled.Line>
                     {tab(1)}{'],'}
