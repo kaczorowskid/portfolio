@@ -1,6 +1,6 @@
 import React, { useContext, forwardRef } from 'react';
 import * as styled from './Settings.styled';
-import AppContext from '../../context/AppContext';
+import { AppContext } from '../../context/AppContext/AppContext';
 import { wallpapers } from '../../wallpapers';
 import { motion } from 'framer-motion'
 import Navbar from './components/Navbar/Navbar';

@@ -4,7 +4,7 @@ import { WindowMinimize } from '@styled-icons/fa-regular';
 import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
-    swidth: 100%;
+    width: 100%;
     height: 6%;
     background: #333333;
     display: flex;

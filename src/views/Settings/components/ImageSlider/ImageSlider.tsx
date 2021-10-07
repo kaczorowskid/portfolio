@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
-import AppContext from '../../../../context/AppContext';
+import React from 'react';
 import { wallpapers } from '../../../../wallpapers';
 import * as styled from './ImageSlider.styled';
 
 interface Props {
     checkWallpaper: number
-    setCheckWallpaper: (val: any) => void
+    setCheckWallpaper: (val: number) => void
 }
 
 const ImageSlider: React.FC<Props> = ({checkWallpaper, setCheckWallpaper}) => {

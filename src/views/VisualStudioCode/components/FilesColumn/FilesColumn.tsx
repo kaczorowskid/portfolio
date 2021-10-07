@@ -3,7 +3,7 @@ import { config } from '../../config';
 import * as styled from './FilesColumn.styled'
 
 interface Props {
-    addArray?: (val: any) => void
+    addArray?: (val: string) => void
 }
 
 const FilesColumn: React.FC<Props> = ({addArray}) => {

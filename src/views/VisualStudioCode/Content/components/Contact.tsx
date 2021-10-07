@@ -11,7 +11,9 @@ const Contact: React.FC = () => {
     const { setClientHeight } = useClientHeight();
 
     useEffect(() => {
-        setClientHeight(containerRef.current?.clientHeight);
+        if (containerRef.current) {
+            setClientHeight(containerRef.current?.clientHeight)
+        }
     }, []);
 
 

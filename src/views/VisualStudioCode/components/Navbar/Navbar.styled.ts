@@ -4,9 +4,6 @@ import { WindowMinimize } from '@styled-icons/fa-regular';
 import styled, { css } from 'styled-components'
 import { device } from '../../../../helper/deviceSize';
 
-export const Container = styled.div`
-
-`;  
 
 export const ContainerNavbar = styled.div`
     width: 100%;

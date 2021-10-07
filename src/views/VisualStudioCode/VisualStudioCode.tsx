@@ -11,7 +11,7 @@ import Contact from './Content/components/Contact';
 import { motion } from 'framer-motion';
 import Projects from './Content/components/Projects';
 import { useClientHeight } from '../../hooks/useClientHeight';
-import AppContext from '../../context/AppContext';
+import { AppContext } from '../../context/AppContext/AppContext';
 
 
 const VisualStudioCode = forwardRef<HTMLDivElement, any>((_, ref) => {

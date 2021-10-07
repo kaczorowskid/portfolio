@@ -26,12 +26,14 @@ const AboutMe: React.FC = () => {
     }
 
     useEffect(() => {
-        setClientHeight(containerRef.current?.clientHeight)
+        if (containerRef.current) {
+            setClientHeight(containerRef.current?.clientHeight)
+        }
     }, [])
 
     return (
         <>
-            <styled.Container ref = {containerRef} >
+            <styled.Container ref={containerRef} >
                 <styled.Line>
                     <styled.Const>const </styled.Const>
                     <styled.ObjectName>aboutMe: <styled.Type >IaboutMeData</styled.Type> </styled.ObjectName>{`= {`}

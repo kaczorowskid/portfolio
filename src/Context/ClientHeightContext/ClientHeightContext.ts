@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 interface ContextType {
     clientHeight: number,
-    setClientHeight: (val: any) => void
+    setClientHeight: (val: number) => void
 }
 
 export const ClientHeightContext = createContext<ContextType>({

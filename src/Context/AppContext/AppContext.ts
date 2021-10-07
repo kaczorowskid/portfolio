@@ -12,7 +12,7 @@ export interface IAppContext {
 }
 
 
-const AppContext = createContext<IAppContext>({
+export const AppContext = createContext<IAppContext>({
     displayTerminal: false,
     setDisplayTerminal: () => {},
     displayVSC: false,
@@ -22,5 +22,3 @@ const AppContext = createContext<IAppContext>({
     checkWallpaper: 0,
     setCheckWallpaper: () => {}
 });
-
-export default AppContext

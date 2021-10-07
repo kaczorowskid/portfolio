@@ -3,7 +3,7 @@ import * as styled from './Navbar.styled'
 
 interface Props {
     appName: string
-    setDisplaySettings: (val: any) => void
+    setDisplaySettings: (val: boolean) => void
 }
 
 const Navbar: React.FC<Props> = ({ appName, setDisplaySettings }) => {

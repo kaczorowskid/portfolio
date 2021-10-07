@@ -21,7 +21,9 @@ const Projects: React.FC = () => {
     }, [touchIdx]);
 
     useEffect(() => {
-        setClientHeight(containerRef.current?.clientHeight);
+        if (containerRef.current) {
+            setClientHeight(containerRef.current?.clientHeight)
+        }
     }, []);
 
 
@@ -29,7 +31,7 @@ const Projects: React.FC = () => {
         <>
             <styled.Container ref = {containerRef} >
                 <styled.Line >
-                    <styled.Const>const </styled.Const> <styled.ObjectName>Projects: <styled.Type>Iprojects</styled.Type> </styled.ObjectName>{'= {'}
+                    <styled.Const>const </styled.Const> <styled.ObjectName>projects: <styled.Type>Iprojects</styled.Type> </styled.ObjectName>{'= {'}
                 </styled.Line>
                 {Object.entries(projects).map(([key, value], i) => (
                     <div key={i}>

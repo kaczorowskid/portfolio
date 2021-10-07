@@ -4,7 +4,7 @@ import Parser from 'html-react-parser';
 import { commands } from './commands';
 import { fetchCat } from '../../helper/fetchCat';
 import { config } from './config'
-import AppContext from '../../context/AppContext';
+import { AppContext } from '../../context/AppContext/AppContext';
 import { motion } from 'framer-motion'
 import Navbar from './components/Navbar/Navbar';
 

@@ -3,9 +3,9 @@ import { IiconData } from '../../types';
 import * as styled from './OpenFilesTab.styled'
 
 interface Props {
-    tabsData?: Array<any>
-    removeTab: (val: any) => void
-    setCheckTab?: (val: any) => void
+    tabsData?: Array<string>
+    removeTab: (val: string) => void
+    setCheckTab?: (val: number) => void
     checkTab: number
 }
 
@@ -15,7 +15,7 @@ const OpenFilesTab: React.FC<Props> = ({tabsData, removeTab, setCheckTab, checkT
         'aboutMe.md': {
             icon: <styled.MarkdownIcon />
         },
-        'Projects.tsx': {
+        'projects.tsx': {
             icon: <styled.TSXIcon />
         },
         'contact.ts': {

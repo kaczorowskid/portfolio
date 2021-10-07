@@ -1,5 +1,5 @@
 export const config = {
     aboutMe: 'aboutMe.md',
-    projects: 'Projects.tsx',
+    projects: 'projects.tsx',
     contact: 'contact.ts'
 }
