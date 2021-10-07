@@ -4,6 +4,7 @@ A responsive site, which I was builded using:
 - Typescript
 - React with React Context API
 - styled-components
+- framer-motion
 
 ## Available Scripts
 
