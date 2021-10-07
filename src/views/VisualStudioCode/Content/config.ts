@@ -7,7 +7,6 @@ export const skills = {
         'Typescript', 
         'React', 
         'Redux',
-        'Hooks', 
         'HTML', 
         'CSS', 
         'material-ui', 
