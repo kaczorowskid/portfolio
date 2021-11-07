@@ -1,5 +1,6 @@
 import portfolio from '../../../assets/img/portfolio.jpg'
 import gigachad from '../../../assets/img/gigachad.jpg';
+import ytDownloader from '../../../assets/img/yt-downloader.jpg';
 
 export const skills = {
     frontend: [
@@ -42,10 +43,10 @@ export const projects = {
         githubLink: 'https://github.com/sijab/portfolio',
         liveLink: 'https://google.com'
     },
-    TestProject: {
-        image: gigachad,
-        description: 'Test project',
-        githubLink: 'https://github.com/sijab',
+    YTDownloader: {
+        image: ytDownloader,
+        description: 'Web app that allows you to download music from youtube, and save it to library',
+        githubLink: 'https://github.com/sijab/yt-downloader-ts',
         liveLink: 'https://google.com'
     }
 }
