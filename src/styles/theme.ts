@@ -1,0 +1,31 @@
+export const theme = {
+  black900: '#000',
+  black800: '#010101',
+  black700: '#0C0C0C',
+  black600: '#1E1E1E',
+  gray700: '#262626',
+  gray600: '#333333',
+  gray550: '#474748',
+  gray500: '#858585',
+  gray400: '#898989',
+  graphite800: '#323233',
+  graphite700: '#252526',
+  graphite600: '#37373D',
+  graphite500: '#252526',
+  green: '#16C60C',
+  blue700: '#007ACC',
+  blue900: '#3B3C3C',
+  blue500: '#3B78FF',
+  blue300: '#90A4AE',
+  red960: '#1E1E1E',
+  red900: '#2D2D2D',
+  red100: '#CCC',
+  white: '#FFF',
+  editor: {
+    blue600: '#4FC1FF',
+    blue500: '#569CCA',
+    blue400: '#9CDCFE',
+    orange: '#CE8349',
+    green: '#4EC9B0'
+  }
+}

@@ -5,7 +5,6 @@ import VisualStudioCode from './views/VisualStudioCode/VisualStudioCode';
 import Terminal from './views/Terminal/Terminal';
 import Settings from './views/Settings/Settings';
 
-
 test('Renders Icons', () => {
   render(<App />);
   const VisualStudioCode = screen.getByText('VisualStudioCode');

@@ -1,0 +1,1 @@
+export { default as FilesColumn } from './FilesColumn';

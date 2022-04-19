@@ -1,0 +1,1 @@
+export { default as OpenFilesTab } from './OpenFilesTab';

@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import AppContextProvider from './context/AppContext/AppContextProvider';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '@styles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppContextProvider>
-      <App />
-    </AppContextProvider>
+    <ThemeProvider theme={theme} >
+      <AppContextProvider>
+        <App />
+      </AppContextProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

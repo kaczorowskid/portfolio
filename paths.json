@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@animations/*": [
+        "animations/*"
+      ],
+      "@animations": [
+        "animations/index"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@assets": [
+        "assets/index"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@components": [
+        "components/index"
+      ],
+      "@context/*": [
+        "context/*"
+      ],
+      "@context": [
+        "context/index"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@hooks": [
+        "hooks/index"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@styles": [
+        "styles/index"
+      ],
+      "@types/*": [
+        "types/*"
+      ],
+      "@types": [
+        "types/index"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@utils": [
+        "utils/index"
+      ],
+      "@views/*": [
+        "views/*"
+      ],
+      "@views": [
+        "views/index"
+      ]
+    }
+  }
+}
